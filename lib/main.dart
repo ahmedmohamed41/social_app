@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/layout/Social_home.dart';
 
 void main() {
   runApp(const SocialApp());
@@ -11,7 +12,7 @@ class SocialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(),
+      home: SocialHome(),
     );
   }
 }
