@@ -6,9 +6,7 @@ class SocialHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Social App'),
-      ),
+      appBar: AppBar(title:const Text('home'),),
     );
   }
 }
