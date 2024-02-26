@@ -7,6 +7,7 @@ import 'package:social_app/layout/social_home.dart';
 import 'package:social_app/module/login/social_login_screen.dart';
 import 'package:social_app/shared/bloc_observer.dart';
 import 'package:social_app/shared/network/local/cache_helper.dart';
+import 'package:social_app/shared/style/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,15 +33,19 @@ class SocialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
+      
       providers: [
         BlocProvider(
           create: (context) => SocialCubit()..changeAppMode(fromShared: true),
         ),
+       
       ],
       child: BlocConsumer<SocialCubit, SocialState>(
         listener: (context, state) {},
+
         builder: (context, state) {
           return  MaterialApp(
+            theme: lightTheme,
             home: widget,
           );
         },

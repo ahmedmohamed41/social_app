@@ -12,3 +12,5 @@ final class SocialSuccessState extends SocialState {}
 final class SocialErrorState extends SocialState {}
 
 final class SocialChngeModeState extends SocialState {}
+
+final class SocialChngeBottomNavState extends SocialState {}
