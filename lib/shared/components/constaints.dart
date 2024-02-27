@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 const Color kAppbarColor = Colors.blue;
 const Color kModeDarkColor = Color(0xFF2F3635);
 const Color defaultColor = Colors.blue;
+const Color defaulScaffold = Colors.white;
 
 void navigateTo(context, widget) => Navigator.push(
       context,
@@ -33,6 +34,7 @@ Future<bool?> flutterToastShow(state, Color color) {
 }
 
 String token = '';
+String uId = '';
 // EndPoints: top-headlines - everything - login
 
 // GET https://newsapi.org/v2/top-headlines?country=us&apiKey=fe0764dd1dab457d99ba4899405c6bc8

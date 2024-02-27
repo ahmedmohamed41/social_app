@@ -6,6 +6,7 @@ import 'package:social_app/layout/cubit/social_cubit.dart';
 import 'package:social_app/layout/social_home.dart';
 import 'package:social_app/module/login/social_login_screen.dart';
 import 'package:social_app/shared/bloc_observer.dart';
+import 'package:social_app/shared/components/constaints.dart';
 import 'package:social_app/shared/network/local/cache_helper.dart';
 import 'package:social_app/shared/style/theme/theme.dart';
 
@@ -16,14 +17,16 @@ void main() async {
   );
   await CacheHelper.init();
   Bloc.observer = MyBlocObserver();
-  var uId = CacheHelper.getDate(key: 'uId');
+  uId = CacheHelper.getDate(key: 'uId');
   Widget widget;
-  if (uId != null) {
+  if (uId.isNotEmpty) {
     widget = const SocialHome();
   } else {
     widget = const SocialLoginScreen();
   }
-  runApp( SocialApp(widget: widget,));
+  runApp(SocialApp(
+    widget: widget,
+  ));
 }
 
 class SocialApp extends StatelessWidget {
@@ -33,18 +36,15 @@ class SocialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      
       providers: [
         BlocProvider(
-          create: (context) => SocialCubit()..changeAppMode(fromShared: true),
+          create: (context) => SocialCubit()..changeAppMode(fromShared: true)..getUserData(),
         ),
-       
       ],
       child: BlocConsumer<SocialCubit, SocialState>(
         listener: (context, state) {},
-
         builder: (context, state) {
-          return  MaterialApp(
+          return MaterialApp(
             theme: lightTheme,
             home: widget,
           );

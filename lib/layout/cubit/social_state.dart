@@ -14,3 +14,11 @@ final class SocialErrorState extends SocialState {}
 final class SocialChngeModeState extends SocialState {}
 
 final class SocialChngeBottomNavState extends SocialState {}
+
+final class SocialAddPostState extends SocialState {}
+
+final class SocialGetDataLoadingState extends SocialState {}
+
+final class SocialGetDataSuccessState extends SocialState {}
+
+final class SocialGetDataErrorState extends SocialState {}

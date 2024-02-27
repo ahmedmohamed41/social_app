@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AddPostScreen extends StatelessWidget {
-  const AddPostScreen({super.key});
+class ChatsScreen extends StatelessWidget {
+  const ChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text(
-          'AddPost Screen',
+          'Chats Screen',
         ),
       ),
     );

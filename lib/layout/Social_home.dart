@@ -4,13 +4,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/layout/cubit/social_cubit.dart';
 import 'package:social_app/shared/style/icons/icon_broken.dart';
 
+import '../module/add_post_screen.dart';
+import '../shared/components/constaints.dart';
+
 class SocialHome extends StatelessWidget {
   const SocialHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SocialCubit, SocialState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is SocialAddPostState) {
+          navigateTo(context, const AddPostScreen());
+        }
+      },
       builder: (context, state) {
         var cubit = SocialCubit.get(context);
         return Scaffold(
@@ -19,8 +26,9 @@ class SocialHome extends StatelessWidget {
               cubit.appBarList[cubit.currentIndex],
             ),
             actions: [
-              IconButton(onPressed: (){}, icon:const Icon(IconBroken.Notification)),
-              IconButton(onPressed: (){}, icon:const Icon(IconBroken.Search)),
+              IconButton(
+                  onPressed: () {}, icon: const Icon(IconBroken.Notification)),
+              IconButton(onPressed: () {}, icon: const Icon(IconBroken.Search)),
             ],
           ),
           body: ConditionalBuilder(
@@ -40,6 +48,8 @@ class SocialHome extends StatelessWidget {
                   icon: Icon(IconBroken.Home), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(IconBroken.Chat), label: 'Chat'),
+              BottomNavigationBarItem(
+                  icon: Icon(IconBroken.Arrow___Up), label: 'Add'),
               BottomNavigationBarItem(
                   icon: Icon(IconBroken.User), label: 'User'),
               BottomNavigationBarItem(
